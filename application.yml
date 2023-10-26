@@ -1,9 +1,9 @@
 server: # REST and WS server
-  port: 443
+  port: 2333
   address: 0.0.0.0
 lavalink:
   server:
-    password: "Sadri@123"
+    password: "coders"
     sources:
       youtube: true
       bandcamp: true
@@ -26,15 +26,10 @@ lavalink:
       #strategy: "RotateOnBan" # RotateOnBan | LoadBalance | NanoSwitch | RotatingNanoSwitch
       #searchTriggersFail: true # Whether a search 429 should trigger marking the ip as failing
       #retryLimit: -1 # -1 = use default lavaplayer value | 0 = infinity | >0 = retry will happen this numbers times
-    plugins:
-      - dependency: "com.dunctebot:skybot-lavalink-plugin:1.3.3"
-        repository: "https://m2.duncte123.dev/releases"
-      - dependency: "me.rohank05:lavalink-filter-plugin:0.0.1" # replace x.x.x with the latest release tag!
-        repository: "https://jitpack.io"
 
 metrics:
   prometheus:
-    enabled: true
+    enabled: false
     endpoint: /metrics
 
 sentry:
