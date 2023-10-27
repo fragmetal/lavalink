@@ -10,8 +10,5 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Make sure your script file has execute permissions
-RUN chmod +x ./main.sh
-
 # Run main.sh when the container launches
-CMD ["./main.sh"]
+CMD ["java -jar Lavalink.jar"]
