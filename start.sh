@@ -1,8 +1,10 @@
-cd node_modules 
-wget -O jdk13.tar.gz https://download.java.net/openjdk/jdk13/ri/openjdk-13+33_linux-x64_bin.tar.gz
-tar -xzvf jdk13.tar.gz
-cd ..
-rm -rf .git
-
-node index
-#node_modules/jdk-13/bin/java -jar Lavalink.jar
+if [ ! -f Lavalink.jar ]; then
+    echo "Lavalink.jar does not exist, downloading..."
+    download_url=$(curl -s https://api.github.com/repos/lavalink-devs/Lavalink/releases/latest | grep 'browser_' | cut -d\" -f4)
+    curl -L $download_url -o Lavalink.jar
+else
+    echo "Lavalink.jar already exists."
+fi
+clear
+echo "Running Lavalink.jar..."
+java -jar Lavalink.jar
