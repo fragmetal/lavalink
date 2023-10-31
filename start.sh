@@ -1,19 +1,9 @@
-#!/bin/bash
-
-# Add the repository
-echo "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main" | tee /etc/apt/sources.list.d/linuxuprising-java.list
-
-# Import the GPG key
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 73C3DB2A
-
-# Update package lists
-apt-get update
-
-# Install Java 16
-apt-get install -y oracle-java16-installer
-
-# Verify the installation
-java -version
-
+if [ ! -f Lavalink.jar ]; then
+    echo "Lavalink.jar does not exist, downloading..."
+    download_url=$(curl -s https://api.github.com/repos/lavalink-devs/Lavalink/releases/latest | grep 'browser_' | cut -d\" -f4)
+    curl -L $download_url -o Lavalink.jar
+else
+    echo "Lavalink.jar already exists."
+fi
 echo "Running Lavalink.jar..."
 java -jar Lavalink.jar
