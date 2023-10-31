@@ -1,0 +1,17 @@
+{
+  "name": "lavalink-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "sadri",
+  "license": "MIT",
+  "dependencies": {
+	  
+  },
+  "engines": {
+	"node": "20.6.1"
+	"java": "21"
+  },
+  "scripts": {
+   "start": "bash start.sh"
+  }
+}
