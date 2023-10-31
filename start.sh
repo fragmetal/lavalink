@@ -8,5 +8,5 @@ else
 fi
 # Print the version of Java being used
 java -version
-echo "Running Lavalink.jar with OpenJDK 17..."
+echo "Running Lavalink.jar"
 java -jar Lavalink.jar
