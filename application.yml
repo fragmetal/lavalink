@@ -1,12 +1,12 @@
 server:
-  port: 443
+  port: ${PORT}
   address: 0.0.0.0
 spring:
   main:
     banner-mode: log
 lavalink:
   server:
-    password: Sadri@123
+    password: ${PASSWORD}
     sources:
       youtube: true
       bandcamp: true
