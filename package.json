@@ -5,7 +5,7 @@
   "main": "start.sh",
   "engines": {
     "java": "17.0.9"
-  }
+  },
   "scripts": {
     "start": "bash start.sh"
   },
