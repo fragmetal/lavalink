@@ -1,0 +1,13 @@
+{
+  "name": "lavalink-server",
+  "version": "1.0.0",
+  "description": "My App",
+  "main": "start.sh",
+  "scripts": {
+    "start": "bash start.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
