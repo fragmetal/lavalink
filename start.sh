@@ -18,10 +18,12 @@ if [[ ! -d jdk-17 ]] || [[ -z $(ls -A jdk-17) ]]; then
     fi
 fi
 
-# Function to get the latest release URL
+# GitHub repo URL
+repo_url="https://api.github.com/repos/lavalink-devs/Lavalink/releases/latest"
+
+# Get the URL of the latest release from the GitHub API
 get_latest_release_url() {
-    local release_url=$(curl -s https://github.com/lavalink-devs/Lavalink/releases/latest | grep -oE "https://github.com/lavalink-devs/Lavalink/releases/download/.*/Lavalink.jar")
-    echo "$release_url"
+    curl --silent "$repo_url" | grep '"browser_download_url":' | sed -E 's/.*"([^"]+)".*/\1/'
 }
 
 # Download and run Lavalink.jar
@@ -44,3 +46,4 @@ if [ -f Lavalink.jar ]; then
 else
     echo "Lavalink.jar download failed."
 fi
+
