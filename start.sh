@@ -20,7 +20,7 @@ fi
 
 # Function to get the latest release URL
 get_latest_release_url() {
-    local release_url=$(curl -s https://api.github.com/repos/lavalink-devs/Lavalink/releases/latest | jq -r '.assets[] | select(.name == "Lavalink.jar") | .browser_download_url')
+    local release_url=$(curl -s https://github.com/lavalink-devs/Lavalink/releases/latest | grep -oE "https://github.com/lavalink-devs/Lavalink/releases/download/.*/Lavalink.jar")
     echo "$release_url"
 }
 
