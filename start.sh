@@ -18,10 +18,16 @@ if [[ ! -d jdk-17 ]] || [[ -z $(ls -A jdk-17) ]]; then
     fi
 fi
 
+# Function to get the latest release URL
+get_latest_release_url() {
+    local release_url=$(curl -s https://api.github.com/repos/lavalink-devs/Lavalink/releases/latest | jq -r '.assets[] | select(.name == "Lavalink.jar") | .browser_download_url')
+    echo "$release_url"
+}
+
 # Download and run Lavalink.jar
 if [ ! -f Lavalink.jar ]; then
     echo "Lavalink.jar does not exist, downloading..."
-    download_url=$(curl -s https://github.com/lavalink-devs/Lavalink/releases/latest | grep "browser_download_url" | grep "Lavalink.jar" | cut -d '"' -f 4)
+    download_url=$(get_latest_release_url)
     if [ -n "$download_url" ]; then
         curl -L -o Lavalink.jar $download_url
     else
