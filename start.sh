@@ -17,7 +17,6 @@ if [[ ! -d jdk-17 ]] || [[ -z $(ls -A jdk-17) ]]; then
         echo "Java OpenJDK 17 is already installed."
     fi
 fi
-
 # GitHub repo URL
 repo_url="https://api.github.com/repos/lavalink-devs/Lavalink/releases/latest"
 
@@ -46,4 +45,3 @@ if [ -f Lavalink.jar ]; then
 else
     echo "Lavalink.jar download failed."
 fi
-
