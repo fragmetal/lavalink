@@ -3,7 +3,7 @@
 if [[ ! -d jdk-17 ]] || [[ -z $(ls -A jdk-17) ]]; then
     echo "Java OpenJDK 17 is not installed, downloading..."
     # Download OpenJDK 17
-    wget https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_linux-x64_bin.tar.gz
+    curl -O https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_linux-x64_bin.tar.gz
     tar -xvf openjdk-17_linux-x64_bin.tar.gz
     rm openjdk-17_linux-x64_bin.tar.gz
     # Move the OpenJDK files to the 'jdk-17' directory
@@ -19,12 +19,8 @@ get_latest_release_url() {
     # Fetch the API response
     api_response=$(curl --silent "$repo_url")
     
-    # Print the API response for debugging
-    echo "API response: $api_response"
-    
     # Extract and print the download URL
-    download_url=$(echo "$api_response" | grep '"browser_download_url":' | sed -E 's/.*"([^"]+)".*/\1/')
-    echo "Extracted download URL: $download_url"
+    download_url=$(echo "$api_response" | grep -Po '"browser_download_url": "\K.*?(?=")')
     
     # Return the download URL
     echo "$download_url"
