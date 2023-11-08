@@ -21,7 +21,7 @@ fi
 # Download and run Lavalink.jar
 if [ ! -f Lavalink.jar ]; then
     echo "Lavalink.jar does not exist, downloading..."
-    download_url=$(curl -s https://api.github.com/repos/Frederikam/Lavalink/releases/latest | grep "browser_download_url" | grep "Lavalink.jar" | cut -d '"' -f 4)
+    download_url=$(curl -s https://github.com/lavalink-devs/Lavalink/releases/latest | grep "browser_download_url" | grep "Lavalink.jar" | cut -d '"' -f 4)
     if [ -n "$download_url" ]; then
         curl -L -o Lavalink.jar $download_url
     else
